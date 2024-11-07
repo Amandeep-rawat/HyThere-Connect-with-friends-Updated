@@ -90,7 +90,7 @@ const Profile = () => {
     (
 
       
-      <div className='max-md:pl-24 flex max-w-5xl justify-center mx-auto max-xl:pl-40   pl-20 '>
+      <div className='max-md:pl-24 flex max-w-5xl justify-center mx-auto max-xl:pl-40 max-[450px]:px-1.5 max-[450px]:pt-10  pl-20 '>
       
             <div className='flex  flex-col max-sm:gap-12  gap-20 sm:p-8 max-sm:p-3'>
 

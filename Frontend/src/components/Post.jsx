@@ -271,7 +271,7 @@ const followOrUnfollow=async ()=>{
 
   return (
 
-    <div className='my-8 w-full max-w-sm max-sm:max-w-xs max-[460px]:max-w-60 mx-auto'>
+    <div className='my-8 w-full max-w-sm max-sm:max-w-xs max-[450px]:max-w-sm max-[420px]:max-w-fit max-[420px]:px-1.5 mx-auto'>
       <div className='flex items-center justify-between'>
 
         <div className='flex items-center gap-2'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import {
@@ -26,6 +26,7 @@ const CommentDialog = ({ open, setOpen,}) => {
     const [text, setText] = useState("")
 
     const [comments, setComments] = useState(selectedPost?.comments || []);
+    const navigate=useNavigate()
 
 useEffect(() => {
     setComments(selectedPost?.comments || []);
@@ -98,24 +99,26 @@ dispatch(setSelectedPost(updatedPost));
 
     return (
         <Dialog open={open}>
-            <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl p-0 flex flex-col  ">
-                <div className='flex flex-1'>
+            <DialogContent onInteractOutside={() => setOpen(false)} className="max-w-5xl max-lg:max-w-3xl p-0 flex flex-col  ">
+                <div className='flex  max-sm:flex-col '>
 
-                    <div className='w-1/2 '>
+                    <div className='sm:w-1/2 '>
 
-                        <img className='w-full h-[80vh] object-contain rounded-l-lg' src={selectedPost?.image} alt="" />
+                        <img className='w-full h-[80vh] max-sm:h-[40vh] object-contain rounded-l-lg' src={selectedPost?.image} alt="" />
                     </div>
-                    <div className='w-1/2 flex flex-col justify-between'>
-                        <div className='flex items-center justify-between p-4'>
+                    <div className='  sm:w-1/2 flex flex-col justify-between'>
+                        <div className='flex items-center justify-between py-4 px-1'>
                             <div className='flex gap-3 items-center'>
 
                             <Link>
-                                <Avatar className='w-6 h-6'>
+                                <Avatar onClick={()=>{
+                                    navigate(`/profile/${selectedPost?.author?._id}`)
+                                }} className='w-6 h-6'>
                                     <AvatarImage src={selectedPost?.author?.profilePicture} />
                                     <AvatarFallback>CN</AvatarFallback>
                                 </Avatar>
                             </Link>
-                            <div><Link className="font-semibold text-xs">
+                            <div><Link to={`profile/${selectedPost?.author?._id}`} className="font-semibold text-xs">
                     {selectedPost?.author?.userName}</Link>
                             {/* <span className='text-gray-600 text-sm'>
                                 Bio here...</span> */}
@@ -136,7 +139,7 @@ dispatch(setSelectedPost(updatedPost));
                                 </Dialog>
                         </div>
                         <hr />
-                        <div className='flex-1 overflow-y-auto max-h-96'>
+                        <div className='flex-1 overflow-y-auto max-h-96 max-sm:max-h-52'>
                             {
                                 comments.map((comment)=>{
                                     return (

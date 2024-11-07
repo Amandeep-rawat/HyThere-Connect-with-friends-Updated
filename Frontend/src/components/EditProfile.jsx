@@ -82,7 +82,7 @@ const editProfileHandler=async()=>{
 }
 
   return (
-    <div className='flex  max-w-2xl mx-auto pl-10 max-[1070px]:pl-20 max-[785px]:max-w-xl max-[686px]:max-w-lg max-[600px]:max-w-md max-[550px]:max-w-sm'>
+    <div className='flex  max-w-2xl mx-auto pl-10 max-[1070px]:pl-20 max-[785px]:max-w-xl max-[686px]:max-w-lg max-[600px]:max-w-md max-[550px]:max-w-sm max-[450px]:px-1.5'>
         <section className='flex flex-col gap-6 w-full'>
             <h1 className='font-bold text-xl max-[550px]:font-semibold max-[550px]:text-md'>
                 

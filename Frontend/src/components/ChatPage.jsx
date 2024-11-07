@@ -7,11 +7,11 @@ import { ArrowBigLeft, ArrowLeft, MessageCircle, MessageCircleCode } from 'lucid
 import Messages from './Messages'
 import { setMessages } from '@/Redux/chatSlice'
 import { toast } from 'sonner'
-
+import { useNavigate } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
 const ChatPage = () => {
     const {user,suggestedUsers,selectedUser}=useSelector((state)=>state.auth)
-    
+    const navigate=useNavigate()
     
     // console.log("suggested users",suggestedUsers)
     const dispatch=useDispatch();
@@ -62,11 +62,16 @@ const ChatPage = () => {
     },[])
     return (
     
-    <div className='flex ml-[16%] max-[1150px]:ml-[24%]  max-[900px]:ml-[14%] max-[800px]:ml-[18%] max-sm:ml-[22%]  h-screen'>
+    <div className='flex ml-[16%] max-[1150px]:ml-[24%]  max-[900px]:ml-[14%] max-[800px]:ml-[18%] max-sm:ml-[22%] max-[450px]:ml-0  h-screen'>
         
         <section className={`lg:w-1/4 ${selectedUser ? "hidden":"block"} max-sm:w-full max-lg:w-1/3 max-md:w-1/2 max-sm:my-3 my-8`}>
+        <div className='w-full px-2 flex justify-between items-center'>
 
+        <ArrowLeft onClick={()=>{
+            navigate(-1)
+        }} className='w-8 h-8'/>
         <h1 className="font-bold max-sm:text-center mb-4 px-3 text-xl">{user?.userName}</h1>
+        </div>
         
         <hr  className='mb-4 border-gray-300'/>
         <div className="overflow-y-auto h-[80vh]">
